@@ -24,50 +24,44 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:"Heebo",system-ui,sans-serif;font-size:15px;line-height:1.4;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:980px;margin:0 auto;padding:0 12px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 12px}
   button{font-family:"Heebo",sans-serif}
 
-  header{padding:18px 0 10px}
+  header{padding:18px 0 8px;display:flex;align-items:baseline;gap:10px}
   h1{font-family:"Frank Ruhl Libre","Times New Roman",serif;font-weight:900;font-size:26px;margin:0}
   h1 span{color:var(--accent)}
-  .sub{margin:3px 0 0;color:var(--soft);font-size:13px}
+  .manage{margin-inline-start:auto;background:none;border:none;color:var(--soft);
+    font-size:12.5px;cursor:pointer;text-decoration:underline}
 
-  /* legend + nav */
-  .bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
-  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--soft);align-items:center}
+  .legend{display:flex;gap:9px 14px;flex-wrap:wrap;font-size:12px;color:var(--soft);margin:2px 0 10px}
   .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-inline-end:4px;vertical-align:-1px;font-style:normal}
-  .addm{background:var(--card);border:1px dashed var(--line);border-radius:99px;
-    padding:4px 11px;font-size:12px;color:var(--soft);cursor:pointer}
-  .nav{margin-inline-start:auto;display:flex;gap:6px;align-items:center}
-  .navb{background:var(--card);border:1px solid var(--line);border-radius:8px;
-    width:32px;height:32px;font-size:16px;cursor:pointer;color:var(--soft);line-height:1}
-  .todayb{background:var(--card);border:1px solid var(--line);border-radius:8px;
-    padding:0 12px;height:32px;font-size:12.5px;cursor:pointer;color:var(--accent);font-weight:700}
 
-  /* table */
-  .tbl{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:auto;
-    box-shadow:0 1px 2px rgba(27,42,26,.05);max-height:calc(100vh - 170px)}
-  table{border-collapse:separate;border-spacing:0}
-  th,td{padding:0;text-align:center}
-  thead th{position:sticky;top:0;background:var(--card);z-index:5;
-    border-bottom:2px solid var(--line);font-size:10.5px;font-weight:700;color:var(--soft);
-    padding:7px 2px;line-height:1.25;min-width:46px;width:46px}
-  thead th .dn{font-size:13px;color:var(--ink)}
-  thead th.today{background:var(--accent-l)}
-  thead th.today .dn{color:var(--accent)}
-  th.crop,td.crop{position:sticky;right:0;background:var(--card);z-index:6;
-    border-inline-end:2px solid var(--line);text-align:right;padding:0 12px;
-    min-width:86px;width:86px;font-weight:700;font-size:14px}
-  thead th.crop{z-index:7}
+  /* month nav */
+  .calnav{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .calnav h2{font-family:"Frank Ruhl Libre",serif;font-size:21px;margin:0;flex:1;text-align:center}
+  .navb{background:var(--card);border:1px solid var(--line);border-radius:9px;
+    width:36px;height:36px;font-size:17px;cursor:pointer;color:var(--soft);line-height:1}
+  .todayb{background:var(--card);border:1px solid var(--line);border-radius:9px;
+    padding:0 12px;height:36px;font-size:12.5px;cursor:pointer;color:var(--accent);font-weight:700}
 
-  tbody td{border-bottom:1px solid var(--line2);height:46px}
-  tbody tr:last-child td{border-bottom:none}
-  td.today{background:#F6FAF1}
-  .cell{width:100%;height:46px;border:none;background:none;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;gap:3px;flex-wrap:wrap;padding:2px}
-  .cell:active{background:var(--accent-l)}
-  .dot{width:11px;height:11px;border-radius:50%}
-  .mrk{font-size:14px;font-weight:700;color:var(--accent)}
+  /* calendar */
+  .cal{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;
+    box-shadow:0 1px 2px rgba(27,42,26,.05)}
+  table{border-collapse:separate;border-spacing:3px;width:100%;table-layout:fixed}
+  th{font-size:11px;font-weight:700;color:var(--soft);padding:4px 0 6px}
+  td{padding:0}
+  .day{width:100%;min-height:56px;border:1px solid transparent;border-radius:10px;
+    background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;
+    justify-content:flex-start;gap:3px;padding:5px 2px 4px}
+  .day:active{background:var(--accent-l)}
+  .day .n{font-size:13px;color:var(--ink);line-height:1}
+  .day.out{visibility:hidden}
+  .day.has{background:#F7FAF2;border-color:var(--line2)}
+  .day.today{border-color:var(--accent);background:var(--accent-l)}
+  .day.today .n{font-weight:700;color:var(--accent)}
+  .dots{display:flex;gap:2.5px;flex-wrap:wrap;justify-content:center;max-width:100%}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .cnt{font-size:9.5px;color:var(--soft)}
 
   /* agronomist notes */
   details{margin:14px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -85,25 +79,39 @@
   .sheet.on{display:block}
   .sheet .bg{position:absolute;inset:0;background:rgba(20,30,20,.4)}
   .pan{position:absolute;inset-inline:0;bottom:0;background:var(--card);
-    border-radius:18px 18px 0 0;padding:18px 18px 28px;max-height:78vh;overflow:auto;
+    border-radius:18px 18px 0 0;padding:18px 18px 28px;max-height:82vh;overflow:auto;
     box-shadow:0 -8px 32px rgba(0,0,0,.18)}
   @media(min-width:700px){.pan{inset-inline:auto;left:50%;bottom:auto;top:50%;
-    transform:translate(-50%,-50%);width:400px;border-radius:16px}}
-  .sh-t{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:21px;margin:0}
-  .sh-m{font-size:13px;color:var(--soft);margin:2px 0 12px}
-  .done-list{margin-bottom:12px}
+    transform:translate(-50%,-50%);width:420px;border-radius:16px}}
+  .sh-t{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:21px;margin:0 0 12px}
+
   .hl{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line2)}
   .hl i{width:11px;height:11px;border-radius:50%;font-style:normal;flex:0 0 auto}
-  .hl button{margin-inline-start:auto;background:none;border:none;color:#C2402E;font-size:12.5px;cursor:pointer}
-  .pick-t{font-size:12px;color:var(--soft);margin:0 0 7px;font-weight:700}
-  .picks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .pick{border:1px solid var(--line);background:var(--paper);border-radius:11px;
-    padding:12px 10px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);
-    display:flex;align-items:center;gap:8px;text-align:right}
-  .pick i{width:11px;height:11px;border-radius:50%;font-style:normal;flex:0 0 auto}
-  .pick small{display:block;font-weight:400;font-size:10.5px;color:var(--soft)}
-  .close{width:100%;margin-top:14px;background:var(--paper);border:1px solid var(--line);
+  .hl .del{margin-inline-start:auto;background:none;border:none;color:#C2402E;font-size:12.5px;cursor:pointer}
+  .empty{font-size:13px;color:var(--soft);padding:4px 0 10px}
+
+  .addbox{margin-top:12px;background:var(--paper);border:1px solid var(--line2);border-radius:12px;padding:12px}
+  .addbox h4{margin:0 0 8px;font-size:12.5px;color:var(--soft)}
+  .frow{display:flex;gap:8px;margin-bottom:8px}
+  .frow label{flex:0 0 44px;font-size:12.5px;color:var(--soft);align-self:center}
+  .frow select{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px;
+    font-size:14px;font-family:"Heebo";background:var(--card);color:var(--ink)}
+  .newrow{display:flex;gap:8px;margin:-2px 0 8px;padding-inline-start:52px}
+  .newrow input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 11px;
+    font-size:14px;font-family:"Heebo";background:var(--card)}
+  .newrow button{background:var(--accent);color:#fff;border:none;border-radius:10px;
+    padding:0 14px;font-size:13px;font-weight:700;cursor:pointer}
+  .big{width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;
+    padding:13px;font-size:15px;font-weight:700;cursor:pointer}
+  .close{width:100%;margin-top:12px;background:var(--paper);border:1px solid var(--line);
     border-radius:12px;padding:12px;font-size:14px;cursor:pointer;color:var(--soft)}
+
+  /* manage sheet */
+  .mg h4{margin:14px 0 4px;font-size:13px;color:var(--soft)}
+  .mg .hl{padding:7px 0}
+  .mg .addline{display:flex;gap:8px;margin-top:8px}
+  .mg .addline input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:14px;font-family:"Heebo"}
+  .mg .addline button{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:0 14px;font-weight:700;cursor:pointer}
 
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(70px);
     background:var(--ink);color:#fff;border-radius:99px;padding:10px 22px;font-size:14px;
@@ -115,21 +123,22 @@
 
 <header class="wrap">
   <h1>יומן ה<span>גינה</span></h1>
-  <p class="sub">לוחצים על תא ביום הרצוי → בוחרים חומר → נרשם ✓</p>
+  <button class="manage" onclick="openManage()">עריכת גידולים וחומרים</button>
 </header>
 
 <main class="wrap">
-  <div class="bar">
-    <div class="legend" id="legend"></div>
-    <button class="addm" onclick="addMat()">＋ חומר</button>
-    <div class="nav">
-      <button class="navb" onclick="shift(7)">›</button>
-      <button class="todayb" onclick="goToday()">היום</button>
-      <button class="navb" onclick="shift(-7)">‹</button>
-    </div>
+  <div class="legend" id="legend"></div>
+
+  <div class="calnav">
+    <button class="navb" onclick="shiftM(-1)">‹</button>
+    <h2 id="mtitle"></h2>
+    <button class="navb" onclick="shiftM(1)">›</button>
+    <button class="todayb" onclick="goToday()">היום</button>
   </div>
 
-  <div class="tbl"><table id="t"></table></div>
+  <div class="cal">
+    <table id="cal"></table>
+  </div>
 
   <details>
     <summary>ההנחיות של האגרונום</summary>
@@ -142,7 +151,7 @@
     </div>
   </details>
 
-  <footer>הנתונים נשמרים במכשיר · העמודה הימנית היא היום, שמאלה = אחורה בזמן · ‹ › לדפדוף בין שבועות</footer>
+  <footer>לוחצים על יום כדי לרשום או לראות מה נעשה בו · הנתונים נשמרים במכשיר</footer>
 </main>
 
 <div class="sheet" id="sheet">
@@ -152,111 +161,176 @@
 <div class="toast" id="toast">נרשם ✓</div>
 
 <script>
-const CROPS=['תאנה','אפרסק','לימון','תפוז','מנגו','בננה','גפן','פיטנגו','אננס','אוכמניות','היביסקוס','פסיפלורה'];
+const DEF_CROPS=['תאנה','אפרסק','לימון','תפוז','מנגו','בננה','גפן','פיטנגו','אננס','אוכמניות','היביסקוס','פסיפלורה'];
 const BASE=[
- {id:'npk', n:'20-20-20 + ברזל', c:'#2F5233', h:'2 כפיות + כפית ברזל בדלי · פעם בחודש'},
- {id:'kno3',n:'חנקת אשלגן',      c:'#D08A1E', h:'בפריחה ובחנטה'},
- {id:'conf',n:'קונפידור',        c:'#2F8FB3', h:'אביב · בפסיפלורה 5 סמ״ק לליטר'},
- {id:'trac',n:'טרייסר אולטרה',   c:'#7A5CA8', h:'אביב / לפי המזיק, לפי התווית'}
+ {id:'npk', n:'20-20-20 + ברזל', c:'#2F5233'},
+ {id:'kno3',n:'חנקת אשלגן',      c:'#D08A1E'},
+ {id:'conf',n:'קונפידור',        c:'#2F8FB3'},
+ {id:'trac',n:'טרייסר אולטרה',   c:'#7A5CA8'}
 ];
-const CUSTC='#66705F';
+const PALETTE=['#C2402E','#3E8E7E','#B4552B','#4A5FC1','#8A5C8A','#5C7C8A','#6B8E23','#B85C8A'];
+const MONTH_HE=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+const DOW=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'];
 
 const KEY='garden.simple.v1';
-let S={logs:[],mats:[]};
-try{ const x=JSON.parse(localStorage.getItem(KEY)); if(x&&x.logs) S=x; }catch(e){}
+let S={logs:[],mats:[],crops:null};
+try{ const x=JSON.parse(localStorage.getItem(KEY)); if(x&&x.logs) S=Object.assign({logs:[],mats:[],crops:null},x); }catch(e){}
+if(!Array.isArray(S.crops)||!S.crops.length) S.crops=[...DEF_CROPS];
 const save=()=>{ try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){} };
 
-const mats=()=>BASE.concat(S.mats.map(m=>({...m,c:m.c||CUSTC})));
+const mats=()=>BASE.concat(S.mats.map((m,i)=>({...m,c:m.c||PALETTE[i%PALETTE.length]})));
 const matOf=id=>mats().find(m=>m.id===id);
 const pad=n=>String(n).padStart(2,'0');
 const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const T=()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())};
-const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
-const DOW=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'];
+const logsAt=ds=>S.logs.filter(e=>e.d===ds);
 
-const NDAYS=14;
-let end=T(); // rightmost column (latest day shown)
-function shift(n){ end=addD(end,n); render(); }
-function goToday(){ end=T(); render(); }
+let viewY=T().getFullYear(), viewM=T().getMonth();
+let lastCrop=null, lastMat='npk';
 
-const logsAt=(c,d)=>S.logs.filter(e=>e.c===c&&e.d===d);
+function shiftM(n){ const d=new Date(viewY,viewM+n,1); viewY=d.getFullYear(); viewM=d.getMonth(); render(); }
+function goToday(){ viewY=T().getFullYear(); viewM=T().getMonth(); render(); }
 
 function render(){
-  // days: index 0 = latest (rightmost in RTL), going back in time
-  const days=[]; for(let i=0;i<NDAYS;i++) days.push(addD(end,-i));
-  const today=iso(T());
+  document.getElementById('mtitle').textContent=`${MONTH_HE[viewM]} ${viewY}`;
+  const first=new Date(viewY,viewM,1);
+  const dim=new Date(viewY,viewM+1,0).getDate();
+  const start=first.getDay(); // 0=Sunday → first column (rightmost in RTL)
+  const todayIso=iso(T());
 
-  let h='<thead><tr><th class="crop">גידול</th>';
-  days.forEach(d=>{
-    const ds=iso(d);
-    h+=`<th class="${ds===today?'today':''}"><span class="dn">${d.getDate()}.${d.getMonth()+1}</span><br>${DOW[d.getDay()]}</th>`;
-  });
-  h+='</tr></thead><tbody>';
-  CROPS.forEach(c=>{
-    h+=`<tr><td class="crop">${c}</td>`;
-    days.forEach(d=>{
-      const ds=iso(d);
-      const ls=logsAt(c,ds);
-      const dots=ls.slice(0,3).map(e=>{const m=matOf(e.m);return `<span class="dot" style="background:${m?m.c:CUSTC}"></span>`}).join('');
-      h+=`<td class="${ds===today?'today':''}"><button class="cell" onclick="openSheet('${c}','${ds}')">${dots}${ls.length>3?'<span class="mrk">+</span>':''}</button></td>`;
-    });
-    h+='</tr>';
-  });
-  document.getElementById('t').innerHTML=h+'</tbody>';
+  let h='<thead><tr>'+DOW.map(d=>`<th>${d}</th>`).join('')+'</tr></thead><tbody><tr>';
+  let col=0;
+  for(let i=0;i<start;i++){ h+='<td><div class="day out"></div></td>'; col++; }
+  for(let d=1;d<=dim;d++){
+    const ds=`${viewY}-${pad(viewM+1)}-${pad(d)}`;
+    const ls=logsAt(ds);
+    const uniq=[...new Set(ls.map(e=>e.m))].slice(0,4);
+    const dots=uniq.map(m=>{const mm=matOf(m);return `<span class="dot" style="background:${mm?mm.c:'#999'}"></span>`}).join('');
+    h+=`<td><button class="day ${ds===todayIso?'today':''} ${ls.length?'has':''}" onclick="openDay('${ds}')">
+      <span class="n">${d}</span><span class="dots">${dots}</span>${ls.length?`<span class="cnt">${ls.length}</span>`:''}
+    </button></td>`;
+    col++;
+    if(col===7&&d<dim){ h+='</tr><tr>'; col=0; }
+  }
+  while(col>0&&col<7){ h+='<td><div class="day out"></div></td>'; col++; }
+  document.getElementById('cal').innerHTML=h+'</tr></tbody>';
 
   document.getElementById('legend').innerHTML=
-    mats().map(m=>{
-      const custom=S.mats.some(x=>x.id===m.id);
-      return `<span ${custom?`onclick="delMat('${m.id}')" style="cursor:pointer" title="לחיצה למחיקה"`:''}><i style="background:${m.c}"></i>${m.n}</span>`;
-    }).join('');
+    mats().map(m=>`<span><i style="background:${m.c}"></i>${m.n}</span>`).join('');
 }
 
-let cur=null;
-function openSheet(c,ds){
-  cur={c,ds};
+/* ---------- day sheet ---------- */
+let curDs=null;
+function openDay(ds){
+  curDs=ds;
   const d=ds.split('-');
-  const ls=logsAt(c,ds);
+  const ls=logsAt(ds);
+  const cropOpts=S.crops.map(c=>`<option ${c===(lastCrop||S.crops[0])?'selected':''}>${c}</option>`).join('')
+    +'<option value="__new">+ גידול חדש…</option>';
+  const matOpts=mats().map(m=>`<option value="${m.id}" ${m.id===lastMat?'selected':''}>${m.n}</option>`).join('')
+    +'<option value="__new">+ חומר חדש…</option>';
   document.getElementById('pan').innerHTML=`
-    <h3 class="sh-t">${c}</h3>
-    <p class="sh-m">${+d[2]}.${+d[1]}.${d[0].slice(2)}</p>
-    ${ls.length?`<div class="done-list">${ls.map(e=>{const m=matOf(e.m);
-      return `<div class="hl"><i style="background:${m?m.c:CUSTC}"></i><span>${m?m.n:e.m}</span><button onclick="del('${e.m}')">מחק</button></div>`}).join('')}</div>`:''}
-    <p class="pick-t">מה לרשום ליום הזה?</p>
-    <div class="picks">${mats().map(m=>
-      `<button class="pick" onclick="mark('${m.id}')"><i style="background:${m.c}"></i><span>${m.n}${m.h?`<small>${m.h}</small>`:''}</span></button>`).join('')}
+    <h3 class="sh-t">${+d[2]} ב${MONTH_HE[+d[1]-1]} ${d[0]}</h3>
+    ${ls.length?ls.map((e,i)=>{const m=matOf(e.m);
+      return `<div class="hl"><i style="background:${m?m.c:'#999'}"></i><b>${e.c}</b><span style="color:var(--soft)">${m?m.n:e.m}</span>
+        <button class="del" onclick="delLog(${i})">מחק</button></div>`}).join('')
+      :'<p class="empty">אין רישומים ביום הזה עדיין.</p>'}
+    <div class="addbox">
+      <h4>רישום חדש</h4>
+      <div class="frow"><label>גידול</label><select id="selC" onchange="maybeNew(this,'crop')">${cropOpts}</select></div>
+      <div class="newrow" id="newCrop" style="display:none"><input id="inC" placeholder="שם הגידול"><button onclick="confirmNew('crop')">הוסף</button></div>
+      <div class="frow"><label>חומר</label><select id="selM" onchange="maybeNew(this,'mat')">${matOpts}</select></div>
+      <div class="newrow" id="newMat" style="display:none"><input id="inM" placeholder="שם הדשן / הטיפול"><button onclick="confirmNew('mat')">הוסף</button></div>
+      <button class="big" onclick="addLog()">✓ רשום</button>
     </div>
     <button class="close" onclick="closeSheet()">סגור</button>`;
   document.getElementById('sheet').classList.add('on');
 }
-function closeSheet(){document.getElementById('sheet').classList.remove('on');cur=null}
-function mark(mid){
-  if(!cur) return;
-  if(!S.logs.some(e=>e.c===cur.c&&e.m===mid&&e.d===cur.ds)) S.logs.push({c:cur.c,m:mid,d:cur.ds});
-  save(); render(); closeSheet(); toast();
+function maybeNew(sel,kind){
+  const show=sel.value==='__new';
+  document.getElementById(kind==='crop'?'newCrop':'newMat').style.display=show?'flex':'none';
 }
-function del(mid){
-  S.logs=S.logs.filter(e=>!(e.c===cur.c&&e.m===mid&&e.d===cur.ds));
-  save(); render(); openSheet(cur.c,cur.ds);
+function confirmNew(kind){
+  const inp=document.getElementById(kind==='crop'?'inC':'inM');
+  const n=(inp.value||'').trim(); if(!n) return;
+  if(kind==='crop'){
+    if(!S.crops.includes(n)) S.crops.push(n);
+    lastCrop=n;
+  }else{
+    let m=mats().find(x=>x.n===n);
+    if(!m){ S.mats.push({id:'c'+Date.now(),n}); m=mats().find(x=>x.n===n); }
+    lastMat=m.id;
+  }
+  save(); openDay(curDs); render();
 }
-function addMat(){
-  const n=prompt('שם החומר החדש:');
-  if(!n||!n.trim()) return;
-  S.mats.push({id:'c'+Date.now(),n:n.trim(),h:''});
-  save(); render();
+function addLog(){
+  const selC=document.getElementById('selC'), selM=document.getElementById('selM');
+  if(selC.value==='__new'||selM.value==='__new') return;
+  const c=selC.value, m=selM.value;
+  lastCrop=c; lastMat=m;
+  if(!S.logs.some(e=>e.c===c&&e.m===m&&e.d===curDs)) S.logs.push({c,m,d:curDs});
+  save(); render(); openDay(curDs); toast();
+}
+function delLog(i){
+  const ls=logsAt(curDs); const e=ls[i]; if(!e) return;
+  S.logs=S.logs.filter(x=>x!==e);
+  save(); render(); openDay(curDs);
+}
+function closeSheet(){document.getElementById('sheet').classList.remove('on');curDs=null}
+
+/* ---------- manage sheet ---------- */
+function openManage(){
+  curDs=null;
+  const cropRows=S.crops.map((c,i)=>`<div class="hl"><b>${c}</b><button class="del" onclick="delCrop(${i})">מחק</button></div>`).join('');
+  const matRows=mats().map(m=>{
+    const custom=S.mats.some(x=>x.id===m.id);
+    return `<div class="hl"><i style="background:${m.c}"></i><span>${m.n}</span>${custom?`<button class="del" onclick="delMat('${m.id}')">מחק</button>`:''}</div>`;
+  }).join('');
+  document.getElementById('pan').innerHTML=`
+    <h3 class="sh-t">עריכת רשימות</h3>
+    <div class="mg">
+      <h4>גידולים</h4>${cropRows}
+      <div class="addline"><input id="addC" placeholder="גידול חדש — מלל חופשי"><button onclick="addCrop()">הוסף</button></div>
+      <h4>דשנים וטיפולים</h4>${matRows}
+      <div class="addline"><input id="addM" placeholder="דשן / טיפול חדש — מלל חופשי"><button onclick="addMatM()">הוסף</button></div>
+    </div>
+    <button class="close" onclick="closeSheet()">סגור</button>`;
+  document.getElementById('sheet').classList.add('on');
+}
+function addCrop(){
+  const n=(document.getElementById('addC').value||'').trim(); if(!n) return;
+  if(!S.crops.includes(n)) S.crops.push(n);
+  save(); openManage(); render();
+}
+function addMatM(){
+  const n=(document.getElementById('addM').value||'').trim(); if(!n) return;
+  if(!mats().some(m=>m.n===n)) S.mats.push({id:'c'+Date.now(),n});
+  save(); openManage(); render();
+}
+function delCrop(i){
+  const c=S.crops[i];
+  if(confirm(`למחוק את "${c}"? הרישומים שלו יימחקו.`)){
+    S.crops.splice(i,1);
+    S.logs=S.logs.filter(e=>e.c!==c);
+    if(lastCrop===c) lastCrop=null;
+    save(); openManage(); render();
+  }
 }
 function delMat(id){
   const m=S.mats.find(x=>x.id===id);
   if(m&&confirm(`למחוק את "${m.n}"? הרישומים שלו יימחקו.`)){
     S.mats=S.mats.filter(x=>x.id!==id);
     S.logs=S.logs.filter(e=>e.m!==id);
-    save(); render();
+    if(lastMat===id) lastMat='npk';
+    save(); openManage(); render();
   }
 }
+
 let tt;
 function toast(){
   const t=document.getElementById('toast');
   t.classList.add('on'); clearTimeout(tt);
-  tt=setTimeout(()=>t.classList.remove('on'),1400);
+  tt=setTimeout(()=>t.classList.remove('on'),1200);
 }
 render();
 
