@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>יומן הגינה</title>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="הגינה">
+<meta name="theme-color" content="#EFF1E8">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFF1E8; --card:#fff; --ink:#1B2A1A; --soft:#66705F;
+    --line:#D6DBC8; --line2:#E9EDDE;
+    --accent:#2F5233; --accent-l:#EAF1E2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Heebo",system-ui,sans-serif;font-size:15px;line-height:1.4;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 12px}
+  button{font-family:"Heebo",sans-serif}
+
+  header{padding:18px 0 10px}
+  h1{font-family:"Frank Ruhl Libre","Times New Roman",serif;font-weight:900;font-size:26px;margin:0}
+  h1 span{color:var(--accent)}
+  .sub{margin:3px 0 0;color:var(--soft);font-size:13px}
+
+  /* legend + nav */
+  .bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--soft);align-items:center}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-inline-end:4px;vertical-align:-1px;font-style:normal}
+  .addm{background:var(--card);border:1px dashed var(--line);border-radius:99px;
+    padding:4px 11px;font-size:12px;color:var(--soft);cursor:pointer}
+  .nav{margin-inline-start:auto;display:flex;gap:6px;align-items:center}
+  .navb{background:var(--card);border:1px solid var(--line);border-radius:8px;
+    width:32px;height:32px;font-size:16px;cursor:pointer;color:var(--soft);line-height:1}
+  .todayb{background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:0 12px;height:32px;font-size:12.5px;cursor:pointer;color:var(--accent);font-weight:700}
+
+  /* table */
+  .tbl{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:auto;
+    box-shadow:0 1px 2px rgba(27,42,26,.05);max-height:calc(100vh - 170px)}
+  table{border-collapse:separate;border-spacing:0}
+  th,td{padding:0;text-align:center}
+  thead th{position:sticky;top:0;background:var(--card);z-index:5;
+    border-bottom:2px solid var(--line);font-size:10.5px;font-weight:700;color:var(--soft);
+    padding:7px 2px;line-height:1.25;min-width:46px;width:46px}
+  thead th .dn{font-size:13px;color:var(--ink)}
+  thead th.today{background:var(--accent-l)}
+  thead th.today .dn{color:var(--accent)}
+  th.crop,td.crop{position:sticky;right:0;background:var(--card);z-index:6;
+    border-inline-end:2px solid var(--line);text-align:right;padding:0 12px;
+    min-width:86px;width:86px;font-weight:700;font-size:14px}
+  thead th.crop{z-index:7}
+
+  tbody td{border-bottom:1px solid var(--line2);height:46px}
+  tbody tr:last-child td{border-bottom:none}
+  td.today{background:#F6FAF1}
+  .cell{width:100%;height:46px;border:none;background:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:3px;flex-wrap:wrap;padding:2px}
+  .cell:active{background:var(--accent-l)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .mrk{font-size:14px;font-weight:700;color:var(--accent)}
+
+  /* agronomist notes */
+  details{margin:14px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  summary{list-style:none;cursor:pointer;padding:11px 14px;font-size:13px;font-weight:700;color:var(--soft)}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"›";float:left;transform:rotate(90deg);color:var(--line)}
+  details[open] summary::after{transform:rotate(-90deg)}
+  .notes{padding:0 14px 12px;font-size:13px;color:var(--soft);line-height:1.6}
+  .notes b{color:var(--ink)}
+  .notes p{margin:0 0 8px}
+  footer{padding:6px 2px 28px;font-size:11.5px;color:var(--soft)}
+
+  /* sheet */
+  .sheet{position:fixed;inset:0;z-index:50;display:none}
+  .sheet.on{display:block}
+  .sheet .bg{position:absolute;inset:0;background:rgba(20,30,20,.4)}
+  .pan{position:absolute;inset-inline:0;bottom:0;background:var(--card);
+    border-radius:18px 18px 0 0;padding:18px 18px 28px;max-height:78vh;overflow:auto;
+    box-shadow:0 -8px 32px rgba(0,0,0,.18)}
+  @media(min-width:700px){.pan{inset-inline:auto;left:50%;bottom:auto;top:50%;
+    transform:translate(-50%,-50%);width:400px;border-radius:16px}}
+  .sh-t{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:21px;margin:0}
+  .sh-m{font-size:13px;color:var(--soft);margin:2px 0 12px}
+  .done-list{margin-bottom:12px}
+  .hl{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line2)}
+  .hl i{width:11px;height:11px;border-radius:50%;font-style:normal;flex:0 0 auto}
+  .hl button{margin-inline-start:auto;background:none;border:none;color:#C2402E;font-size:12.5px;cursor:pointer}
+  .pick-t{font-size:12px;color:var(--soft);margin:0 0 7px;font-weight:700}
+  .picks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pick{border:1px solid var(--line);background:var(--paper);border-radius:11px;
+    padding:12px 10px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);
+    display:flex;align-items:center;gap:8px;text-align:right}
+  .pick i{width:11px;height:11px;border-radius:50%;font-style:normal;flex:0 0 auto}
+  .pick small{display:block;font-weight:400;font-size:10.5px;color:var(--soft)}
+  .close{width:100%;margin-top:14px;background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:12px;font-size:14px;cursor:pointer;color:var(--soft)}
+
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(70px);
+    background:var(--ink);color:#fff;border-radius:99px;padding:10px 22px;font-size:14px;
+    font-weight:600;opacity:0;transition:all .25s;z-index:60;pointer-events:none}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>יומן ה<span>גינה</span></h1>
+  <p class="sub">לוחצים על תא ביום הרצוי → בוחרים חומר → נרשם ✓</p>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="legend" id="legend"></div>
+    <button class="addm" onclick="addMat()">＋ חומר</button>
+    <div class="nav">
+      <button class="navb" onclick="shift(7)">›</button>
+      <button class="todayb" onclick="goToday()">היום</button>
+      <button class="navb" onclick="shift(-7)">‹</button>
+    </div>
+  </div>
+
+  <div class="tbl"><table id="t"></table></div>
+
+  <details>
+    <summary>ההנחיות של האגרונום</summary>
+    <div class="notes">
+      <p><b>20-20-20 + ברזל</b> — 2 כפיות 20-20-20 + כפית ברזל בדלי מים, פעם בחודש. חצי דלי לעץ צעיר, דלי לעץ בוגר. נשירים: מהלבלוב באביב עד הכניסה לתרדמה. הדרים, מנגו ופסיפלורה: מהאביב ולאורך הקיץ.</p>
+      <p><b>חנקת אשלגן</b> — בשלב הפריחה והחנטה, לפי שלב העץ — לא באופן קבוע כל השנה.</p>
+      <p><b>קונפידור</b> — בהדרים באביב, ביציאה מהחורף. בפסיפלורה: 5 סמ״ק לליטר בריסוס, או 5 סמ״ק בדלי מים — פעם אחת.</p>
+      <p><b>טרייסר אולטרה</b> — באפרסק: ביציאה מהחורף באביב, או לפי פעילות המזיק ולפי התווית.</p>
+      <p><b>זבוב הפירות</b> — לתלות מלכודות כבר עכשיו ולעקוב, לפני פגיעה בפירות.</p>
+    </div>
+  </details>
+
+  <footer>הנתונים נשמרים במכשיר · העמודה הימנית היא היום, שמאלה = אחורה בזמן · ‹ › לדפדוף בין שבועות</footer>
+</main>
+
+<div class="sheet" id="sheet">
+  <div class="bg" onclick="closeSheet()"></div>
+  <div class="pan" id="pan"></div>
+</div>
+<div class="toast" id="toast">נרשם ✓</div>
+
+<script>
+const CROPS=['תאנה','אפרסק','לימון','תפוז','מנגו','בננה','גפן','פיטנגו','אננס','אוכמניות','היביסקוס','פסיפלורה'];
+const BASE=[
+ {id:'npk', n:'20-20-20 + ברזל', c:'#2F5233', h:'2 כפיות + כפית ברזל בדלי · פעם בחודש'},
+ {id:'kno3',n:'חנקת אשלגן',      c:'#D08A1E', h:'בפריחה ובחנטה'},
+ {id:'conf',n:'קונפידור',        c:'#2F8FB3', h:'אביב · בפסיפלורה 5 סמ״ק לליטר'},
+ {id:'trac',n:'טרייסר אולטרה',   c:'#7A5CA8', h:'אביב / לפי המזיק, לפי התווית'}
+];
+const CUSTC='#66705F';
+
+const KEY='garden.simple.v1';
+let S={logs:[],mats:[]};
+try{ const x=JSON.parse(localStorage.getItem(KEY)); if(x&&x.logs) S=x; }catch(e){}
+const save=()=>{ try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){} };
+
+const mats=()=>BASE.concat(S.mats.map(m=>({...m,c:m.c||CUSTC})));
+const matOf=id=>mats().find(m=>m.id===id);
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const T=()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())};
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const DOW=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'];
+
+const NDAYS=14;
+let end=T(); // rightmost column (latest day shown)
+function shift(n){ end=addD(end,n); render(); }
+function goToday(){ end=T(); render(); }
+
+const logsAt=(c,d)=>S.logs.filter(e=>e.c===c&&e.d===d);
+
+function render(){
+  // days: index 0 = latest (rightmost in RTL), going back in time
+  const days=[]; for(let i=0;i<NDAYS;i++) days.push(addD(end,-i));
+  const today=iso(T());
+
+  let h='<thead><tr><th class="crop">גידול</th>';
+  days.forEach(d=>{
+    const ds=iso(d);
+    h+=`<th class="${ds===today?'today':''}"><span class="dn">${d.getDate()}.${d.getMonth()+1}</span><br>${DOW[d.getDay()]}</th>`;
+  });
+  h+='</tr></thead><tbody>';
+  CROPS.forEach(c=>{
+    h+=`<tr><td class="crop">${c}</td>`;
+    days.forEach(d=>{
+      const ds=iso(d);
+      const ls=logsAt(c,ds);
+      const dots=ls.slice(0,3).map(e=>{const m=matOf(e.m);return `<span class="dot" style="background:${m?m.c:CUSTC}"></span>`}).join('');
+      h+=`<td class="${ds===today?'today':''}"><button class="cell" onclick="openSheet('${c}','${ds}')">${dots}${ls.length>3?'<span class="mrk">+</span>':''}</button></td>`;
+    });
+    h+='</tr>';
+  });
+  document.getElementById('t').innerHTML=h+'</tbody>';
+
+  document.getElementById('legend').innerHTML=
+    mats().map(m=>{
+      const custom=S.mats.some(x=>x.id===m.id);
+      return `<span ${custom?`onclick="delMat('${m.id}')" style="cursor:pointer" title="לחיצה למחיקה"`:''}><i style="background:${m.c}"></i>${m.n}</span>`;
+    }).join('');
+}
+
+let cur=null;
+function openSheet(c,ds){
+  cur={c,ds};
+  const d=ds.split('-');
+  const ls=logsAt(c,ds);
+  document.getElementById('pan').innerHTML=`
+    <h3 class="sh-t">${c}</h3>
+    <p class="sh-m">${+d[2]}.${+d[1]}.${d[0].slice(2)}</p>
+    ${ls.length?`<div class="done-list">${ls.map(e=>{const m=matOf(e.m);
+      return `<div class="hl"><i style="background:${m?m.c:CUSTC}"></i><span>${m?m.n:e.m}</span><button onclick="del('${e.m}')">מחק</button></div>`}).join('')}</div>`:''}
+    <p class="pick-t">מה לרשום ליום הזה?</p>
+    <div class="picks">${mats().map(m=>
+      `<button class="pick" onclick="mark('${m.id}')"><i style="background:${m.c}"></i><span>${m.n}${m.h?`<small>${m.h}</small>`:''}</span></button>`).join('')}
+    </div>
+    <button class="close" onclick="closeSheet()">סגור</button>`;
+  document.getElementById('sheet').classList.add('on');
+}
+function closeSheet(){document.getElementById('sheet').classList.remove('on');cur=null}
+function mark(mid){
+  if(!cur) return;
+  if(!S.logs.some(e=>e.c===cur.c&&e.m===mid&&e.d===cur.ds)) S.logs.push({c:cur.c,m:mid,d:cur.ds});
+  save(); render(); closeSheet(); toast();
+}
+function del(mid){
+  S.logs=S.logs.filter(e=>!(e.c===cur.c&&e.m===mid&&e.d===cur.ds));
+  save(); render(); openSheet(cur.c,cur.ds);
+}
+function addMat(){
+  const n=prompt('שם החומר החדש:');
+  if(!n||!n.trim()) return;
+  S.mats.push({id:'c'+Date.now(),n:n.trim(),h:''});
+  save(); render();
+}
+function delMat(id){
+  const m=S.mats.find(x=>x.id===id);
+  if(m&&confirm(`למחוק את "${m.n}"? הרישומים שלו יימחקו.`)){
+    S.mats=S.mats.filter(x=>x.id!==id);
+    S.logs=S.logs.filter(e=>e.m!==id);
+    save(); render();
+  }
+}
+let tt;
+function toast(){
+  const t=document.getElementById('toast');
+  t.classList.add('on'); clearTimeout(tt);
+  tt=setTimeout(()=>t.classList.remove('on'),1400);
+}
+render();
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+</script>
+</body>
+</html>
